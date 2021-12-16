@@ -1,0 +1,9 @@
+{
+  "name": "FindLink",
+  "description": "To parse link from screenshot. This is made by Vue.js",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html"
+  }
+}
