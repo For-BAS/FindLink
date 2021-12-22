@@ -1,11 +1,10 @@
-window.onload = function () {
-  document.getElementById("edit").addEventListener("click", function (e) {
-    document.querySelector("body").classList.add("edit_cursor");
-    screenshot(e);
-  });
-};
+var head = document.getElementsByTagName("head")[0];
+var link = document.createElement("link");
+link.href = "./screenshot.css";
+link.type = "text/css";
+link.rel = "stylesheet";
 
-function screenshot(e) {
+function screenshot() {
   var startX, startY;
   var height = window.innerHeight;
   var width = window.innerWidth;
@@ -19,8 +18,15 @@ function screenshot(e) {
   var $screenshot = document.createElement("div");
   $screenshot.id = "screenshot";
 
+  // <a id="target" style="display: none"></a>;
+
+  var $imagechecker = document.createElement("a");
+  $imagechecker.id = "target";
+  $imagechecker.style = "display: none";
+
   document.querySelector("body").appendChild($screenBg);
   document.querySelector("body").appendChild($screenshot);
+  document.querySelector("body").appendChild($imagechecker);
 
   var selectArea = false;
   var body = document.querySelector("body");
@@ -44,8 +50,8 @@ function screenshot(e) {
     //마우스 떼면서 마우스 무브 이벤트 삭제
     body.removeEventListener("mousemove", mousemove);
     //스크린샷을 취해 생성한 객체 삭제
-    $screenshot.parentNode.removeChild($screenshot);
-    $screenBg.parentNode.removeChild($screenBg);
+    // $screenshot.parentNode.removeChild($screenshot);
+    // $screenBg.parentNode.removeChild($screenBg);
     var x = e.clientX;
     var y = e.clientY;
     var top = Math.min(y, startY);
@@ -97,8 +103,13 @@ function screenshot(e) {
     } else {
       var el = document.getElementById("target");
       el.href = canvas.toDataURL("image/jpeg");
+      // console.log("check 1");
       el.download = "hello.jpg";
       el.click();
     }
   }
 }
+
+console.log("testtest1");
+screenshot();
+console.log("testtest2");

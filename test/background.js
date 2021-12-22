@@ -1,5 +1,10 @@
-async function getCurrentTab() {
-  let queryOptions = { active: true, currentWindow: true };
-  let [tab] = await chrome.tabs.query(queryOptions);
-  return tab;
-}
+// chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
+//   if (request.message === "userStatus") {
+//     isLogedIn(sendResponse);
+//     return true;
+//   }
+// });
+
+// function isLogedIn(sendResponse) {
+//   sendResponse({ message: "success" });
+// }

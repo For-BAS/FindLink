@@ -1,12 +1,37 @@
 {
-  "name": "Vue extension",
-  "description": "My extension app made by Vue.js",
-  "version": "0.0.1",
+  "name": "Find Link",
+  "description": "",
+  "version": "1.0.1",
   "manifest_version": 3,
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*/*",
+        "https://*/*",
+        "<all_urls>"
+      ],
+      "js": [
+        "html2canvas.js"
+      ],
+      "css": [
+        "screenshot.css"
+      ]
+    }
+  ],
   "action": {
-    "default_popup": "caputre.html"
+    "default_icon": "findlink.png",
+    "default_popup": "popup.html"
   },
   "permissions": [
-    "tabs"
+    "tabs",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
   ]
 }
