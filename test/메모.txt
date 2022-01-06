@@ -1,0 +1,6 @@
+background js에서는 모든 브라우저 API 호출 가능함, DOM에 영향 못줌
+
+sendMsg, onMsg
+
+빌드 자동으로 해주는 웹팩??
+
